@@ -116,7 +116,7 @@ namespace Binarysharp.MSharp.Threading
             ProcessThread nativeThread;
             do
             {
-                nativeThread = MemorySharp.Threads.NativeThreads.FirstOrDefault(t => ret.ClientIdStruct.UniqueThread.IsEqual(t.Id));
+                nativeThread = MemorySharp.Threads.NativeThreads.FirstOrDefault(t => t.Id == ret.ClientIdStruct.UniqueThread.ToInt64());
             } while (nativeThread == null);
 
             // Find the managed object corresponding to this thread
